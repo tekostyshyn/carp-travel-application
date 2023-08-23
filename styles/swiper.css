@@ -1,0 +1,26 @@
+.swiper_container {
+  @apply relative md:h-[360px] lg:h-[660px] w-full;
+}
+
+.swiper-wrapper {
+  @apply md:h-[306px] lg:h-[606px];
+}
+
+.swiper-slide img {
+  object-fit: cover;
+  @apply w-full h-full
+}
+
+.swiper_button_prev {
+  cursor: pointer;
+  position: absolute;
+  color: rgb(var(--main-white-rgb));
+  @apply absolute top-auto right-auto left-[38px] bottom-0 text-[33px] font-thin
+}
+
+.swiper_button_next {
+  cursor: pointer;
+  position: absolute;
+  color: rgb(var(--main-white-rgb));
+  @apply absolute top-auto left-auto right-[38px] bottom-0 text-[33px] font-thin
+}

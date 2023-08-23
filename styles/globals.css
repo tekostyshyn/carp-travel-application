@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-white-rgb: 255, 255, 255;
+  --white-transparent-rgba: 255, 255, 255, 0.05;
+  --gradient-begin-rgba: 0, 24, 38, 1;
+  --gradient-end-rgba: 0, 37, 49, 0;
+  --bottom-bgd-rgba: 10, 24, 19, 1;
+  --top-bgd-rgba: 2, 15, 8, 0.75;
+
+  --hero-bottom-bgd-rgba: 217, 217, 217, 1;
+  --hero-top-bgd-rgba: 2, 15, 8, 0.5;
+
+  --backdrop-color-rgba: 1, 10, 5, 0.75;
+  --button-bgd-rgba: 255, 255, 255, 0.1;
+  --button-bgd-hover-rgba: 255, 255, 255, 0.2;
+  --base-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  color: rgb(var(--main-white-rgb));
+  background-color: #d9d9d9;
+}
+
+.backdrop {
+  background-color: rgba(var(--backdrop-color-rgba));
+  backdrop-filter: blur(25px);
+  @apply w-screen h-screen absolute left-0 top-0 z-40;
+}
+
+.hero {
+  background-color: var(--hero-bottom-bgd-rgba);
+  background-image: linear-gradient(rgba(var(--hero-top-bgd-rgba)), rgba(var(--hero-top-bgd-rgba))),
+    url("/images/hero-bgd-image.jpeg");
+  background-size: cover;
+  @apply sm:pt-[105px] sm:pb-[56px] md:pt-[124px] md:pb-[64px] lg:pt-[130px] lg:pb-[104px] min-h-screen relative z-0;
+}
+
+.hero_gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--gradient-begin-rgba)),
+    rgba(var(--gradient-end-rgba))
+  );
+  @apply w-full h-[287px] opacity-75 absolute top-0 z-10;
+}
+
+.main_button {
+  background-color: rgba(var(--button-bgd-rgba));
+  @apply text-lg lg:text-[32px] text-center uppercase h-full w-full flex items-center justify-center font-bold;
+
+  transition: background-color var(--base-transition);
+}
+
+.main_button:hover,
+.main_button:focus {
+  background-color: rgba(var(--button-bgd-hover-rgba));
+}
+
+.hor_border {
+  background-color: rgb(var(--main-white-rgb));
+  @apply w-[44px] h-[1px] absolute;
+}
+
+.ver_border {
+  background-color: rgb(var(--main-white-rgb));
+  @apply w-[1px] h-[11px] absolute;
+}
+
+.gallery {
+  background-color: var(--bottom-bgd-rgba);
+  background-image: linear-gradient(rgba(var(--top-bgd-rgba)), rgba(var(--top-bgd-rgba))),
+    url("/images/gallery-bgd-image.jpeg");
+  background-size: cover;
+  @apply sm:py-[56px] md:py-[64px] lg:py-[104px]  min-h-screen relative z-0;
+}
+
+.contacts {
+  background-color: var(--bottom-bgd-rgba);
+  background-image: linear-gradient(rgba(var(--top-bgd-rgba)), rgba(var(--top-bgd-rgba))),
+    url("/images/contacts-bgd-image.jpeg");
+  background-size: cover;
+  @apply sm:py-[56px] md:py-[64px] lg:py-[104px]  min-h-screen relative z-0;
+}
+
+.section_gradient_1 {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--gradient-begin-rgba)),
+    rgba(var(--gradient-end-rgba))
+  );
+  @apply w-full h-[247px] opacity-75 absolute z-10 top-0;
+}
+
+.section_gradient_2 {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--gradient-end-rgba)),
+    rgba(var(--gradient-begin-rgba))
+  );
+  @apply w-full h-[247px] opacity-75 absolute z-10 bottom-0;
+}
+
+.address_thin {
+  @apply text-[12px] font-extralight leading-[20px] not-italic;
+}
+
+.address_bold {
+  @apply sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal leading-[24px] not-italic relative;
+}
+
+.address_bold::after {
+  display: block;
+  content: "";
+  background-color: rgb(var(--main-white-rgb));
+  transition: opacity var(--base-transition);
+
+  @apply absolute bottom-0 left-0 w-full h-[1px] opacity-0;
+}
+
+.address_bold:hover::after,
+.address_bold:focus::after {
+  opacity: 1;
+}
+
+.label {
+  @apply text-[12px] font-extralight leading-[24px] tracking-[2.4px] mb-[4px];
+}
+
+.input {
+  background-color: rgba(var(--white-transparent-rgba));
+  outline: none;
+  @apply h-full w-full px-[8px] text-[13px] lg:text-[20px] font-extralight leading-[24px];
+}
+
+.input::placeholder {
+  opacity: 0.2;
+}
+
+.textarea {
+  background-color: rgba(var(--white-transparent-rgba));
+  outline: none;
+  @apply h-[193px] w-full px-[8px] text-[13px] font-extralight leading-[24px] mb-[16px] resize-none	overflow-y-auto;
+}
+
+.form_button {
+  display: block;
+  @apply text-[30px] lg:text-[32px] font-medium uppercase self-end relative;
+}
+
+.form_button::after {
+  display: block;
+  content: "";
+  background-color: rgb(var(--main-white-rgb));
+  transition: opacity var(--base-transition);
+
+  @apply absolute bottom-0 left-0 w-full h-[1px] opacity-0;
+}
+
+.form_button:hover::after,
+.form_button:focus::after {
+  opacity: 1;
+}
+
+.menu_link {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu_link::after {
+  display: block;
+  content: "";
+  background-color: rgb(var(--main-white-rgb));
+  transition: opacity var(--base-transition);
+
+  @apply absolute bottom-[-5px] left-0 w-full h-[1px] opacity-0;
+}
+
+.menu_link:hover::after,
+.menu_link:focus::after {
+  opacity: 1;
+}
+
+
